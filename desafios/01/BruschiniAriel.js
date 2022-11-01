@@ -1,9 +1,9 @@
 class Usuario {
-    constructor(nombre, apellido, libros, mascotas) {
+    constructor(nombre, apellido, libros = [], mascotas = []) {
         this.nombre = nombre;
         this.apellido = apellido;
-        libros ? this.libros = libros : this.libros = [];
-        mascotas ? this.mascotas = mascotas : this.mascotas = [];
+        this.libros = libros;
+        this.mascotas = mascotas;
     }
 
     getFullName(){
@@ -30,7 +30,7 @@ class Usuario {
 
 }
 
-let usuario1 = new Usuario("Ariel","Bruschini",[{nombre: "Primer Libro", autor: "Primer Autor"}],["Gene"]);
+let usuario1 = new Usuario("Ariel","Bruschini", [] ,["Peter"]);
 
 console.log(usuario1.getFullName());
 usuario1.addMascota("Paul");
