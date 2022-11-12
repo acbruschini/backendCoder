@@ -117,11 +117,15 @@ class Contenedor {
     }
 }
 
-let objetoAgregar = {title: "Escuadra", price: 123.45, thumbnail: "https://unarchivo.jpg"};
-let objetoAgregar2 = {title: "Lapiz", price: 45, thumbnail: "https://unarchivo2.jpg"};
-let objetoAgregar3 = {title: "Goma", price: 123, thumbnail: "https://unarchivo3.jpg"};
+let objetoAgregar = {title: "Sierra Circular", price: 123.45, thumbnail: "https://unarchivo.jpg"};
+let objetoAgregar2 = {title: "Amoladora", price: 45, thumbnail: "https://unarchivo2.jpg"};
+let objetoAgregar3 = {title: "Nivel", price: 1233, thumbnail: "https://unarchivo3.jpg"};
+let objetoAgregar4 = {title: "Nivel Laser", price: 2123, thumbnail: "https://unarchivo3.jpg"};
+let objetoAgregar5 = {title: "Martillo", price: 6123, thumbnail: "https://unarchivo3.jpg"};
+let objetoAgregar6 = {title: "Sierra Caladora", price: 1323, thumbnail: "https://unarchivo3.jpg"};
+let objetoAgregar7 = {title: "Lapiz Carpintero", price: 1223, thumbnail: "https://unarchivo3.jpg"};
 
-const productosContenedor = new Contenedor("./test.txt");
+const productosContenedor = new Contenedor("./productos.txt");
 
 function test() {
     productosContenedor.getAll()
@@ -129,6 +133,10 @@ function test() {
     .then(() => productosContenedor.save(objetoAgregar))
     .then(() => productosContenedor.save(objetoAgregar2))
     .then(() => productosContenedor.save(objetoAgregar3))
+    .then(() => productosContenedor.save(objetoAgregar4))
+    .then(() => productosContenedor.save(objetoAgregar5))
+    .then(() => productosContenedor.save(objetoAgregar6))
+    .then(() => productosContenedor.save(objetoAgregar7))
     // .then(() => productosContenedor.getAll())
     .then(array => {
         console.log(array)
