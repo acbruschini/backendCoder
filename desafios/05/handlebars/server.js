@@ -201,5 +201,5 @@ app.post("/productos", async (req, res) => {
 });
 
 
-let PORT = 2020;
+let PORT = 8080;
 const server = app.listen(PORT, () => console.log("Escuchando en " + PORT));
