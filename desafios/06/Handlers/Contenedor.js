@@ -1,12 +1,6 @@
-const express = require("express");
 const fs = require("fs");
 
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// CONTENEDOR
-class Contenedor {
+module.exports = class Contenedor {
   nextId;
   arrayObj = new Array();
 
@@ -25,19 +19,15 @@ class Contenedor {
 
   async save(object) {
     try {
-      if (!this.#isInFile(object)) {
-        object["id"] = this.nextId;
-        this.arrayObj.push(object);
-        await fs.promises.writeFile(
-          this.nombreArchivo,
-          JSON.stringify(this.arrayObj)
-        );
-        console.log("se guardo" + object.id);
-        this.nextId++;
-        return Promise.resolve(object.id);
-      } else {
-        return null;
-      }
+      object["id"] = this.nextId;
+      this.arrayObj.push(object);
+      await fs.promises.writeFile(
+        this.nombreArchivo,
+        JSON.stringify(this.arrayObj)
+      );
+      console.log("se guardo" + object.id);
+      this.nextId++;
+      return Promise.resolve(object.id);
     } catch (err) {
       console.log(err);
     }
@@ -56,13 +46,7 @@ class Contenedor {
   async update(id, newObject) {
     let index = this.#IdExists(id);
     if (index) {
-      const { title, price, thumbnail } = newObject;
-      this.arrayObj[index] = {
-        title: title,
-        price: price,
-        thumbnail: thumbnail,
-        id: id,
-      };
+      this.arrayObj[index] = { ...newObject, id: id };
       await fs.promises.writeFile(
         this.nombreArchivo,
         JSON.stringify(this.arrayObj)
@@ -158,47 +142,4 @@ class Contenedor {
       console.log(err);
     }
   }
-}
-
-const productosContenedor = new Contenedor("productos.txt");
-
-//PLANTILLAS
-app.set("view engine", "ejs");
-
-//GET
-app.get("/productos", async (req, res) => {
-  try {
-    const productos = await productosContenedor.getAll();
-    res.render("index", {
-      pageTitle: "Desafio 05 - Ejs",
-      productos: productos,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-//POST
-app.post("/productos", async (req, res) => {
-  try {
-    const producto = req.body;
-    await productosContenedor.save(producto);
-    res.redirect("/productos");
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-//DELETE?
-app.get("/productoDelete/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleted = await productosContenedor.deleteById(Number(id));
-    id ? res.redirect("/productos") : res.status(404);
-  } catch (error) {
-    console.log(error);
-  }
-})
-
-let PORT = 8080;
-const server = app.listen(PORT, () => console.log("Escuchando en " + PORT));
+};

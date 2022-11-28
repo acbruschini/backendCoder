@@ -1,9 +1,16 @@
-const http = require("http");
+const objeto = [
+    {
+        titulo: "titulovalue",
+        precio: "preciovalue",
+        thumb: "thumbvalue",
+        id: "34"
+    }
+];
 
-const server = http.createServer((request, response) => {
-    response.end("Conectado");
-})
-
-const connectedServer = server.listen(2020, () => {
-    console.log("Escuchando en el 2020");
-})
+objeto.forEach(element => {
+    for (const [key, value] of Object.entries(element)) {
+        if (key != "id") {
+            console.log(`${key}: ${value}`);
+        }
+    }
+});

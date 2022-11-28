@@ -36,6 +36,7 @@
           <th>Title</th>
           <th>Price</th>
           <th>Thumbnail</th>
+          <th>Actions</th>
         </tr>
         <% productos.forEach( producto => { %>
             <tr>
@@ -51,6 +52,12 @@
                   src=<%=producto.thumbnail %>
                   alt=<%=producto.title %>
                 />
+              </td>
+              <td>
+                <form action="/productoDelete/<%=producto.id %>" method="delete">
+                  <button type="submit">Borrar</button>
+
+                </form>
               </td>
             </tr>        
         <% }) %>

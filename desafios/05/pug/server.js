@@ -56,13 +56,7 @@ class Contenedor {
   async update(id, newObject) {
     let index = this.#IdExists(id);
     if (index) {
-      const { title, price, thumbnail } = newObject;
-      this.arrayObj[index] = {
-        title: title,
-        price: price,
-        thumbnail: thumbnail,
-        id: id,
-      };
+      this.arrayObj[index] = {...newObject, id: id};
       await fs.promises.writeFile(
         this.nombreArchivo,
         JSON.stringify(this.arrayObj)
