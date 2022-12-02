@@ -1,84 +1,23 @@
 import express from "express";
 import Container from "../models/Container.js";
-import { admin } from "../server.js";
+import { isAdmin } from "../controllers/generalValidations.js";
+import { getProducts } from "../controllers/products/getProducts.js";
+import { postProducts } from "../controllers/products/postProducts.js";
+import { putProducts } from "../controllers/products/putProducts.js";
+import { deleteProducts } from "../controllers/products/deleteProducts.js";
+import { validId, existsProduct } from "../controllers/products/productsValidations.js";
+
 const { Router } = express;
 const prodRouter = Router();
 
-const prodContainer = new Container("./data/products.txt");
+export const prodContainer = new Container("./data/products.txt");
 
-//VER SI LO PONGO EN MIDDLEWARE
-function validId(req, res, next) {
-  prodContainer.getById(req.params.id) == null && req.params.id != null
-    ? res
-        .status(401)
-        .json({ error: -3, descripcion: "This product doesn't exists" })
-    : next();
-}
+prodRouter.get("/:id?", validId, getProducts);
 
-function existsProduct(req, res, next) {
-  prodContainer.getById(req.params.id) == null
-    ? res
-        .status(401)
-        .json({ error: -3, descripcion: "This product doesn't exists" })
-    : next();
-}
+prodRouter.post("/", isAdmin , postProducts);
 
-function isAdmin(req, res, next) {
-  admin
-    ? next()
-    : res
-        .status(401)
-        .json({ error: -4, descripcion: "The route in your petition is not authorized", route: req.originalUrl });
-}
+prodRouter.put("/:id", isAdmin, existsProduct, putProducts);
 
-///////
-
-prodRouter.get("/:id?", validId, async (req, res) => {
-  console.log(req.params.id);
-  res
-    .status(200)
-    .json(
-      !req.params.id
-        ? await prodContainer.getAll()
-        : prodContainer.getById(req.params.id)
-    );
-});
-
-prodRouter.post("/", isAdmin ,async (req, res) => {
-  const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
-  const newProduct = {
-    timestamp: Date.now(),
-    nombre,
-    descripcion,
-    codigo,
-    foto,
-    precio,
-    stock,
-  };
-  const idNew = await prodContainer.save(newProduct);
-  res.status(201).json({ status: "ok", newProductId: idNew });
-});
-
-prodRouter.put("/:id", isAdmin, existsProduct, async (req, res) => {
-  const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
-  const updatedProduct = {
-    timestamp: Date.now(),
-    nombre,
-    descripcion,
-    codigo,
-    foto,
-    precio,
-    stock,
-  };
-  const id = await prodContainer.update(req.params.id, updatedProduct);
-  res
-    .status(200)
-    .json({ status: "ok", updatedProduct: [prodContainer.getById(id)] });
-});
-
-prodRouter.delete("/:id", isAdmin, existsProduct, async (req, res) => {
-  const id = await prodContainer.deleteById(req.params.id);
-  res.status(200).json({ status: "ok", deletedProduct: id });
-});
+prodRouter.delete("/:id", isAdmin, existsProduct, deleteProducts);
 
 export default prodRouter;
