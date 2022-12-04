@@ -12,5 +12,5 @@ app.use((req, res) => {
     res.json({error: -1, description: "Not an implemented route " + req.originalUrl});
 })
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening in ${PORT}`));

@@ -1,10 +1,8 @@
 import express from "express";
 import Container from "../models/Container.js";
 import { isAdmin } from "../controllers/generalValidations.js";
-import { getProducts } from "../controllers/products/getProducts.js";
-import { postProducts } from "../controllers/products/postProducts.js";
-import { putProducts } from "../controllers/products/putProducts.js";
-import { deleteProducts } from "../controllers/products/deleteProducts.js";
+import { getProducts, postProducts, putProducts, deleteProducts } from "../controllers/products/productsHandlers.js";
+
 import { validId, existsProduct } from "../controllers/products/productsValidations.js";
 
 const { Router } = express;

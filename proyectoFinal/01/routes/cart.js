@@ -1,25 +1,27 @@
 import express from "express";
-import fs from "fs";
-
+import Container from "../models/Container.js";
+import {
+  postCart,
+  deleteCart,
+  getProductsInCart,
+  postProductInCart,
+  deleteProductInCart,
+} from "../controllers/carts/cartsHandlers.js";
+import { existsCart, existsProductForCartPost, existsProductInCart } from "../controllers/carts/cartsValidations.js";
 
 const { Router } = express;
 const cartRouter = Router();
 
-cartRouter.get("/", (req, res) => {
-    res.send("sent from router cart")
-})
+export const cartContainer = new Container("./data/carts.txt");
 
-cartRouter.post("/", (req, res) => {
-    
-})
+cartRouter.delete("/:id?", existsCart, deleteCart);
 
-cartRouter.put("/:id?", (req, res) => {
-    
-})
+cartRouter.post("/", postCart);
 
-cartRouter.delete("/:id?", (req, res) => {
-    
-})
+cartRouter.get("/:id/productos", existsCart, getProductsInCart);
 
+cartRouter.post("/:id/productos", existsCart, existsProductForCartPost, postProductInCart);
+
+cartRouter.delete("/:id/productos/:id_prod", existsCart, existsProductInCart, deleteProductInCart);
 
 export default cartRouter;
