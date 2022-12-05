@@ -10,7 +10,7 @@ export function existsCart(req, res, next) {
 }
 
 export function existsProductForCartPost(req, res, next) {
-  prodContainer.getById(req.body.id) == null
+  prodContainer.getById(req.params.id_prod) == null
     ? res
         .status(401)
         .json({ error: -3, descripcion: "This product doesn't exists" })

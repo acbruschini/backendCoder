@@ -20,7 +20,7 @@ cartRouter.post("/", postCart);
 
 cartRouter.get("/:id/productos", existsCart, getProductsInCart);
 
-cartRouter.post("/:id/productos", existsCart, existsProductForCartPost, postProductInCart);
+cartRouter.post("/:id/productos/:id_prod", existsCart, existsProductForCartPost, postProductInCart);
 
 cartRouter.delete("/:id/productos/:id_prod", existsCart, existsProductInCart, deleteProductInCart);
 

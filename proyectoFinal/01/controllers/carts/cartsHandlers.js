@@ -40,7 +40,7 @@ export async function postCart(req, res) {
 
 export async function postProductInCart(req, res) {
   const cartId = req.params.id;
-  const productId = req.body.id;
+  const productId = req.params.id_prod;
 
   const cart = cartContainer.getById(cartId);
   const product = prodContainer.getById(productId);
