@@ -77,6 +77,12 @@ socket.on("messages", data => {
   });
 
   const deNormalizedData = normalizr.denormalize(data.result,messagesSchema,data.entities);
+  const tamanoNormalizado = JSON.stringify(data).length
+  const tamanoDesNormalizado = JSON.stringify(deNormalizedData).length
+  const porcentajeCompresion = 100 - (tamanoNormalizado * 100 / tamanoDesNormalizado)
+  console.log("TAMANO DES NORMALIZADO", tamanoDesNormalizado)
+  console.log("TAMANO NORMALIZADO", tamanoNormalizado)
+  console.log("SE ACHICO UN " + porcentajeCompresion + "%")
   updateMessages(deNormalizedData.messages);
 
 })
