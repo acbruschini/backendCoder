@@ -33,11 +33,12 @@ app.use(session({
   store: MongoStore.create({
     mongoUrl: "mongodb+srv://acbruschini:acbruschinipassword@backendcluster.zqrgpto.mongodb.net/desafio10?retryWrites=true&w=majority",
     mongoOptions: MongoAdvancedOptions,
+    ttl: 600
   }),
 
   secret: "ArielPassphrase",
   resave: false,
-  saveUninitialized: false 
+  saveUninitialized: false,
 }));
 ////
 
