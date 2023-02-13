@@ -12,7 +12,7 @@ randomsRouter.get("/randoms/:cant?", (req, res) => {
         const numeros = [];
         for (let index = 0; index < cantidad; index++) {
           numeros[index] = Math.floor(Math.random() * 1000) + 1;
-          console.log(numeros[index])
+          //console.log(numeros[index])
         }
         let objNumeros = numeros.reduce((randomCount, currentValue) => {
           return (randomCount[currentValue] ? ++randomCount[currentValue] : (randomCount[currentValue] = 1), randomCount);
