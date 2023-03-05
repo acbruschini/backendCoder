@@ -1,0 +1,3 @@
+USUARIO:
+1) La imagen se podrá subir al servidor y se guardará en una carpeta pública del mismo a la cual se tenga acceso por url. (NO SE PUDO HACER)
+(No se puede hacer con lo que nos dieron, ya que multer necesita enviar form en multipart, y passport aparentemente no funciona asi)

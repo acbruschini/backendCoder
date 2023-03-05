@@ -1,0 +1,3 @@
+1) Validar id todos los ids de todo (falta los del cart)
+2) no consultar tantas veces la base paara validar, consultar en el primer middleware y si esta bien mandarlo por el req.
+3) ojo, que al validar ids en mongo, son 24 caracteres pero ademas son HEX
