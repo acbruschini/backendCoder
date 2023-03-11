@@ -6,9 +6,9 @@ import {
   getRegister,
   getRegisterError,
   getLogout,
-} from "../handlers/loginHandlers.js";
+} from "../services/login.js";
 import passport from "passport";
-import { loginStrategy, registerStrategy } from "../passportConfig/passport.js";
+import { loginStrategy, registerStrategy } from "../configs/passport.js";
 
 passport.use("login", loginStrategy);
 passport.use("register", registerStrategy);

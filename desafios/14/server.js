@@ -5,7 +5,7 @@ import parseArgs from "minimist";
 export const args = parseArgs(process.argv.slice(2));
 
 import { sessionStore } from "./dbOptions/dbSessions.js";
-import Contenedor from "./models/Contenedor.js";
+import Contenedor from "./persistence/Contenedor.js";
 import express from "express";
 import compression from "compression";
 
@@ -13,6 +13,7 @@ import compression from "compression";
 import loginRouter from "./routes/login.js";
 import productsRouter from "./routes/products.js";
 import randomsRouter from "./routes/randoms.js";
+import infoRouter from "./routes/info.js";
 
 // SOCKET IO
 import { Server as HttpServer } from "http";
@@ -28,7 +29,7 @@ import cluster from "cluster";
 import { cpus } from "os";
 
 // LOGGER
-import { logPetitions, logNIPetitions } from "./routes/logsMiddleware.js";
+import { logPetitions, logNIPetitions } from "./routes/middlewares/logsMiddleware.js";
 import { logger } from "./configs/loggers.js";
 
 const SERVERMODE = args.serverMode || "FORK";
@@ -73,7 +74,6 @@ function SERVER() {
 
   const httpServer = new HttpServer(app);
   const io = new IOServer(httpServer);
-  //app.use(express.static("./public"));
 
   //PLANTILLAS
   app.set("view engine", "ejs");
@@ -83,47 +83,7 @@ function SERVER() {
   app.use(loginRouter);
   app.use(productsRouter);
   app.use("/api", randomsRouter);
-
-  app.get("/infoSinLog", (req, res) => {
-  res.send(`<h2>Argumentos de entrada: ${args}</h2>
-  <h2>Sistema Operativo: ${process.platform}</h2>
-  <h2>Version de Node: ${process.version}</h2>
-  <h2>Memoria total reservada: ${process.memoryUsage().heapUsed}</h2>
-  <h2>Path de Ejecucion: ${process.cwd()}</h2>
-  <h2>Process ID: ${process.pid}</h2>
-  <h2>Servidor escuchando en ${PORT} con Process id de ${
-      process.pid
-    } - ${new Date().toLocaleString()}</h2>
-  <h2>Process ID: ${cpus().length}</h2>  
-  <h2>Carpeta del proyecto: ${process.cwd().split("\\").pop()}</h2>`);
-  });
-  // ------------- INFO
-  
-  app.get("/info", (req, res) => {
-    console.log(`<h2>Argumentos de entrada: ${args}</h2>
-    <h2>Sistema Operativo: ${process.platform}</h2>
-    <h2>Version de Node: ${process.version}</h2>
-    <h2>Memoria total reservada: ${process.memoryUsage().heapUsed}</h2>
-    <h2>Path de Ejecucion: ${process.cwd()}</h2>
-    <h2>Process ID: ${process.pid}</h2>
-    <h2>Servidor escuchando en ${PORT} con Process id de ${
-        process.pid
-      } - ${new Date().toLocaleString()}</h2>
-    <h2>Process ID: ${cpus().length}</h2>  
-    <h2>Carpeta del proyecto: ${process.cwd().split("\\").pop()}</h2>`);
-
-    res.send(`<h2>Argumentos de entrada: ${args}</h2>
-  <h2>Sistema Operativo: ${process.platform}</h2>
-  <h2>Version de Node: ${process.version}</h2>
-  <h2>Memoria total reservada: ${process.memoryUsage().heapUsed}</h2>
-  <h2>Path de Ejecucion: ${process.cwd()}</h2>
-  <h2>Process ID: ${process.pid}</h2>
-  <h2>Servidor escuchando en ${PORT} con Process id de ${
-      process.pid
-    } - ${new Date().toLocaleString()}</h2>
-  <h2>Process ID: ${cpus().length}</h2>  
-  <h2>Carpeta del proyecto: ${process.cwd().split("\\").pop()}</h2>`);
-  });
+  app.use("",infoRouter);
 
   // AGREGO UN MIDDLE SOLO PARA LOGUEAR LAS PETICIONES NO IMPLEMENTADAS
   app.get("*", logNIPetitions, (req, res) => {
