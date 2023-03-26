@@ -1,0 +1,249 @@
+Statistical profiling result from prof-ConsoleLog.log, (1237 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1111   89.8%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    124   10.0%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.1%   50.0%  Function: ^send D:\ProgramacionBackend\desafios\14\node_modules\express\lib\response.js:111:25
+      1    0.1%   50.0%  Function: ^isEmpty node:internal/fixed_queue:95:10
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      2    0.2%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+      8    0.6%  400.0%  GC
+   1235   99.8%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1111   89.8%  C:\WINDOWS\SYSTEM32\ntdll.dll
+     23    2.1%    LazyCompile: *cpus node:os:143:14
+     23  100.0%      Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+     23  100.0%        Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+     23  100.0%          Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+     23  100.0%            Function: ^dispatch D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:98:45
+
+    124   10.0%  C:\Program Files\nodejs\node.exe
+     94   75.8%    C:\Program Files\nodejs\node.exe
+     15   16.0%      Function: ^internalCompileFunction node:internal/vm:31:33
+     14   93.3%        Function: ^wrapSafe node:internal/modules/cjs/loader:1125:18
+     13   92.9%          Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+     12   92.3%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1    7.7%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1    7.1%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1    6.7%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1125:18
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1235:37
+     15   16.0%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+     15  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+     15  100.0%          Function: ^Socket._writeGeneric node:net:899:42
+     15  100.0%            Function: ^Socket._write node:net:941:35
+     12   12.8%      Function: ^moduleStrategy node:internal/modules/esm/translators:114:56
+     12  100.0%        Function: ^moduleProvider node:internal/modules/esm/loader:452:28
+     12  100.0%          C:\Program Files\nodejs\node.exe
+      5    5.3%      C:\Program Files\nodejs\node.exe
+      1   20.0%        LazyCompile: *<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%          Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1   20.0%        Function: ^strEscape D:\ProgramacionBackend\desafios\14\node_modules\safe-stable-stringify\index.js:56:20
+      1  100.0%          Function: ^stringifyFnReplacer D:\ProgramacionBackend\desafios\14\node_modules\safe-stable-stringify\index.js:230:32
+      1  100.0%            Function: ^stringifyFnReplacer D:\ProgramacionBackend\desafios\14\node_modules\safe-stable-stringify\index.js:230:32
+      1   20.0%        Function: ^storeHeader node:_http_outgoing:589:21
+      1  100.0%          Function: ^processHeader node:_http_outgoing:570:23
+      1  100.0%            Function: ^_storeHeader node:_http_outgoing:439:22
+      1   20.0%        Function: ^stat node:internal/modules/cjs/loader:161:14
+      1  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:956:35
+      1   20.0%        Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%          Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      3    3.2%      Function: ^stat node:internal/modules/cjs/loader:161:14
+      3  100.0%        Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      3  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:956:35
+      3  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:859:24
+      2    2.1%      Function: ^hash D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:596:14
+      1   50.0%        Function: ^isModified D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:425:24
+      1  100.0%          Function: ^shouldSetCookie D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:464:29
+      1  100.0%            Function: ^<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:220:28
+      1   50.0%        Function: ^generate D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:363:22
+      1  100.0%          Function: ^session D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:179:26
+      1  100.0%            LazyCompile: *trim_prefix D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:293:23
+      2    2.1%      Function: ^closeSync node:fs:541:19
+      2  100.0%        Function: ^readFileSync node:fs:465:22
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      2  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1077:33
+      1    1.1%      LazyCompile: ~stateTransition D:\ProgramacionBackend\desafios\14\node_modules\mongoose\node_modules\mongodb\lib\utils.js:487:36
+      1  100.0%        LazyCompile: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongoose\node_modules\mongodb\lib\sdam\monitor.js:226:12
+      1  100.0%          LazyCompile: ~MonitorInterval._executeAndReschedule D:\ProgramacionBackend\desafios\14\node_modules\mongoose\node_modules\mongodb\lib\sdam\monitor.js:337:38
+      1  100.0%            LazyCompile: ~listOnTimeout node:internal/timers:517:25
+      1    1.1%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+      1  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+      1  100.0%          Function: ^Socket._writeGeneric node:net:899:42
+      1  100.0%            Function: ^Socket._write node:net:941:35
+      1    1.1%      LazyCompile: ~createHash node:crypto:132:20
+      1  100.0%        LazyCompile: ~passwordDigest D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\cmap\auth\scram.js:182:24
+      1  100.0%          LazyCompile: ~continueScramConversation D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\cmap\auth\scram.js:93:35
+      1  100.0%            LazyCompile: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\cmap\auth\scram.js:85:80
+      1    1.1%      LazyCompile: ~createContext node:vm:217:23
+      1  100.0%        LazyCompile: ~runInNewContext node:vm:294:25
+      1  100.0%          LazyCompile: ~getInternalGlobal node:internal/util:559:27
+      1  100.0%            LazyCompile: ~SideEffectFreeRegExpPrototypeExec node:internal/util:568:43
+      1    1.1%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:124:29
+      1  100.0%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+      1  100.0%          LazyCompile: ~connect node:_tls_wrap:1607:35
+      1  100.0%            LazyCompile: ~makeConnection D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\cmap\connect.js:256:24
+      1    1.1%      LazyCompile: ~_handles_method D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:58:59
+      1  100.0%        Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:177:16
+      1  100.0%          Function: ^<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:640:19
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:177:16
+      1    1.1%      LazyCompile: ~WriteStream node:tty:84:21
+      1  100.0%        LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%          LazyCompile: ~getStdout node:internal/bootstrap/switches/is_main_thread:146:19
+      1  100.0%            Function: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\@colors\colors\lib\system\supports-colors.js:1:1
+      1    1.1%      LazyCompile: ~WritableState D:\ProgramacionBackend\desafios\14\node_modules\winston-transport\node_modules\readable-stream\lib\_stream_writable.js:103:23
+      1  100.0%        LazyCompile: ~Writable D:\ProgramacionBackend\desafios\14\node_modules\winston-transport\node_modules\readable-stream\lib\_stream_writable.js:229:18
+      1  100.0%          LazyCompile: ~TransportStream D:\ProgramacionBackend\desafios\14\node_modules\winston-transport\index.js:18:66
+      1  100.0%            LazyCompile: ~Console D:\ProgramacionBackend\desafios\14\node_modules\winston\lib\winston\transports\console.js:26:14
+      1    1.1%      LazyCompile: ~ServerDescription D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\sdam\server_description.js:35:16
+      1  100.0%        LazyCompile: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\sdam\server.js:61:55
+      1  100.0%          LazyCompile: *emit node:events:460:44
+      1  100.0%            LazyCompile: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\sdam\monitor.js:181:73
+      1    1.1%      LazyCompile: ~<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%        LazyCompile: ~handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%          LazyCompile: ~next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1  100.0%            LazyCompile: ~dispatch D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:98:45
+      1    1.1%      LazyCompile: *Hash node:internal/crypto/hash:62:14
+      1  100.0%        Function: ^createHash node:crypto:132:20
+      1  100.0%          Function: ^hash D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:596:14
+      1  100.0%            Function: ^generate D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:363:22
+      1    1.1%      Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%        Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      1  100.0%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%            Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1    1.1%      Function: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\winston\lib\winston\exception-handler.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1077:33
+      1    1.1%      Function: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongoose\node_modules\mongodb\lib\cmap\wire_protocol\compression.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1077:33
+      1    1.1%      Function: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongoose\lib\schema\array.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1077:33
+      1    1.1%      Function: ~<anonymous> D:\ProgramacionBackend\desafios\14\node_modules\mongodb\lib\mongo_client.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1077:33
+      1    1.1%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+      1  100.0%        Function: ^Socket._writeGeneric node:net:899:42
+      1  100.0%          Function: ^Socket._writev node:net:936:36
+      1  100.0%            Function: ^doWrite node:internal/streams/writable:401:17
+      1    1.1%      Function: ^update node:internal/crypto/hash:99:40
+      1  100.0%        Function: ^entitytag D:\ProgramacionBackend\desafios\14\node_modules\etag\index.js:39:20
+      1  100.0%          Function: ^etag D:\ProgramacionBackend\desafios\14\node_modules\etag\index.js:70:15
+      1  100.0%            Function: ^generateETag D:\ProgramacionBackend\desafios\14\node_modules\express\lib\utils.js:273:32
+      1    1.1%      Function: ^statSync node:fs:1588:18
+      1  100.0%        Function: ^tryStatSync node:internal/modules/esm/resolve:176:3
+      1  100.0%          LazyCompile: ~packageResolve node:internal/modules/esm/resolve:833:24
+      1  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:923:23
+      1    1.1%      Function: ^slice node:buffer:654:12
+      1  100.0%        Function: ^toString node:buffer:795:46
+      1  100.0%          Function: ^toString D:\ProgramacionBackend\desafios\14\node_modules\uid-safe\index.js:102:19
+      1  100.0%            Function: ^uidSync D:\ProgramacionBackend\desafios\14\node_modules\uid-safe\index.js:75:18
+      1    1.1%      Function: ^set maxAge D:\ProgramacionBackend\desafios\14\node_modules\express-session\session\cookie.js:83:13
+      1  100.0%        Function: ^Cookie D:\ProgramacionBackend\desafios\14\node_modules\express-session\session\cookie.js:25:46
+      1  100.0%          Function: ^store.generate D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:158:28
+      1  100.0%            Function: ^generate D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:363:22
+      1    1.1%      Function: ^send D:\ProgramacionBackend\desafios\14\node_modules\express\lib\response.js:111:25
+      1  100.0%        Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%          Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1    1.1%      Function: ^res.get D:\ProgramacionBackend\desafios\14\node_modules\express\lib\response.js:811:19
+      1  100.0%        Function: ^send D:\ProgramacionBackend\desafios\14\node_modules\express\lib\response.js:111:25
+      1  100.0%          LazyCompile: *<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%            Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1    1.1%      Function: ^removeAllListeners node:events:735:32
+      1  100.0%        Function: ^Readable.removeAllListeners node:internal/streams/readable:934:49
+      1  100.0%          Function: ^_dump node:_http_incoming:432:49
+      1  100.0%            Function: ^resOnFinish node:_http_server:914:21
+      1    1.1%      Function: ^realpathSync node:fs:2474:22
+      1  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      1    1.1%      Function: ^read node:internal/modules/package_json_reader:16:14
+      1  100.0%        Function: ^readPackage node:internal/modules/cjs/loader:335:21
+      1  100.0%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:528:24
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1    1.1%      Function: ^memoryUsage node:internal/process/per_thread:171:23
+      1  100.0%        Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%          Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1    1.1%      Function: ^maybeCacheSourceMap node:internal/source_map/source_map_cache:114:29
+      1  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1125:18
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1181:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1235:37
+      1    1.1%      Function: ^initialize D:\ProgramacionBackend\desafios\14\node_modules\passport\lib\middleware\initialize.js:51:29
+      1  100.0%        LazyCompile: *trim_prefix D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:293:23
+      1  100.0%          LazyCompile: *next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\index.js:177:16
+      1  100.0%            Function: ^session D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:179:26
+      1    1.1%      Function: ^getHeader node:_http_outgoing:707:57
+      1  100.0%        Function: ^shouldCompress D:\ProgramacionBackend\desafios\14\node_modules\compression\index.js:254:25
+      1  100.0%          Function: ^onResponseHeaders D:\ProgramacionBackend\desafios\14\node_modules\compression\index.js:140:47
+      1  100.0%            Function: ^writeHead D:\ProgramacionBackend\desafios\14\node_modules\on-headers\index.js:28:29
+      1    1.1%      Function: ^getColorDepth node:internal/tty:106:23
+      1  100.0%        Function: ^value node:internal/console/constructor:315:20
+      1  100.0%          Function: ^value node:internal/console/constructor:337:20
+      1  100.0%            Function: ^log node:internal/console/constructor:376:6
+      1    1.1%      Function: ^end D:\ProgramacionBackend\desafios\14\node_modules\compression\index.js:92:28
+      1  100.0%        Function: ^end D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:250:27
+      1  100.0%          Function: ^send D:\ProgramacionBackend\desafios\14\node_modules\express\lib\response.js:111:25
+      1  100.0%            Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1    1.1%      Function: ^decode node:internal/encoding:427:11
+      1  100.0%        LazyCompile: ~utf8DecodeWithoutBOM D:\ProgramacionBackend\desafios\14\node_modules\mongodb-connection-string-url\node_modules\whatwg-url\lib\encoding.js:9:30
+      1  100.0%          LazyCompile: ~parseUrlencoded D:\ProgramacionBackend\desafios\14\node_modules\mongodb-connection-string-url\node_modules\whatwg-url\lib\urlencoded.js:10:25
+      1  100.0%            LazyCompile: ~parseUrlencodedString D:\ProgramacionBackend\desafios\14\node_modules\mongodb-connection-string-url\node_modules\whatwg-url\lib\urlencoded.js:41:31
+      1    1.1%      Function: ^cpus node:os:143:14
+      1  100.0%        Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%          Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1    1.1%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1  100.0%        Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1  100.0%          Function: ~<anonymous> node:http:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    1.1%      Function: ^_send node:_http_outgoing:355:49
+      1  100.0%        Function: ^write_ node:_http_outgoing:850:16
+      1  100.0%          Function: ^end node:_http_outgoing:970:45
+      1  100.0%            Function: ^end D:\ProgramacionBackend\desafios\14\node_modules\compression\index.js:92:28
+      1    1.1%      Function: ^URL node:internal/url:637:14
+      1  100.0%        LazyCompile: ~getPackageScopeConfig node:internal/modules/esm/package_config:105:31
+      1  100.0%          LazyCompile: ~getPackageType node:internal/modules/esm/resolve:784:24
+      1  100.0%            LazyCompile: ~getFileProtocolModuleFormat node:internal/modules/esm/get_format:54:37
+      1    1.1%      Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:956:35
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:859:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1105:36
+      1    1.1%      Function: ^Hash node:internal/crypto/hash:62:14
+      1  100.0%        Function: ^createHash node:crypto:132:20
+      1  100.0%          Function: ^hash D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:596:14
+      1  100.0%            Function: ^generate D:\ProgramacionBackend\desafios\14\node_modules\express-session\index.js:363:22
+      1    1.1%      Function: ^<anonymous> file:///D:/ProgramacionBackend/desafios/14/server.js:91:20
+      1  100.0%        Function: ^handle D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%          Function: ^next D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:116:16
+      1  100.0%            Function: ^dispatch D:\ProgramacionBackend\desafios\14\node_modules\express\lib\router\route.js:98:45
+
