@@ -1,0 +1,45 @@
+{
+  "name": "07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha server.test.js",
+    "supertest": "mocha server.supertest.js",
+    "start": "0x server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autocannon": "^7.10.0",
+    "axios": "^1.3.4",
+    "chai": "^4.3.7",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "express-session": "^1.17.3",
+    "graphql": "^16.6.0",
+    "knex": "^2.3.0",
+    "minimist": "^1.2.7",
+    "mocha": "^10.2.0",
+    "mongoose": "^6.8.4",
+    "mysql": "^2.18.1",
+    "normalizr": "^3.6.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.5.4",
+    "sqlite3": "^5.1.2",
+    "supertest": "^6.3.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}
