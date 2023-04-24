@@ -14,40 +14,18 @@ import cluster from "cluster";
 // EXPRESS
 import express from "express";
 import { router } from "./routes/index.js";
-//import loggedInRouter from './routes/loggedIn.js';
-
-// SESSION
-import passport from "passport";
-import session from "express-session";
-import { sessionStore } from './configs/dbSessions.js';
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  session({
-    secret: process.env.EXPRESS_SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: sessionStore,
-    cookie: {
-      maxAge: 1000 * 60 * 10,
-    },
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use("/api", router);
-//app.use(loggedInRouter);
-
-// app.use((req, res) => {
-//   res.json({
-//     error: -1,
-//     description: "Not an implemented route " + req.originalUrl,
-//   });
-// });
+app.use((req, res) => {
+  res.json({
+    error: -1,
+    description: "Not an implemented route " + req.originalUrl,
+  });
+});
 
 const SERVERMODE = args.serverMode || "FORK";
 const PORT = args.port || process.env.PORT || 8080;
