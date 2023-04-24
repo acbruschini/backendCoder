@@ -5,6 +5,7 @@ dotenv.config()
 const usersCollName = "users";
 
 const usersSchema = new mongoose.Schema({
+    id: {type: mongoose.Schema.Types.ObjectId},
     timestamp: {type: String, require: true, max: 30},
     email: {type: String, require: true, max: 30},
     nombre: {type: String, require: true, max: 20},
