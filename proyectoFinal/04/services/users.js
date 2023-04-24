@@ -3,6 +3,7 @@ import { validPasword, genPassword } from "../helpers/passwordUtils.js";
 import CartsRepo from "../repos/carts.js";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
+import { sendEmailRegistration } from "../../03/helpers/sendEmailUtils.js";
 dotenv.config();
 
 const usersR = new UsersRepo();
@@ -35,25 +36,40 @@ export class UsersServices {
         hash: hash,
         salt: salt,
       };
+
+      // SEND EMAIL REGISTRATION
+      process.env.SEND_EMAIL_SUPPORT == "true"
+        ? sendEmailRegistration(`<h1>Nuevo registro</h1>
+      <p>Datos<br>Nombre: ${userData.nombre}
+      <br>Email: ${userData.email}
+      </p>`)
+        : null;
+
       return await usersR.save(newUser);
     } catch (error) {
       console.log(error);
     }
   }
+
   async login(email, password) {
     try {
       const user = await usersR.getByEmail(email);
       if (!user) {
         return { status: "El usuario no existe" };
-      } else if(validPasword(password, user.hash, user.salt)) {
-        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: "30m"});
-        return {token: token, userId: user.id}
+      } else if (validPasword(password, user.hash, user.salt)) {
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+          expiresIn: "30m",
+        });
+        return { token: token, userId: user.id };
       } else {
         return { status: "La clave es incorrecta" };
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
+  }
+
+  async getUsers() {
+    return await usersR.getAll();
   }
 }

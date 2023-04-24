@@ -15,7 +15,7 @@ export default class CartsRepo {
 
   async getById(id) {
     const dto = await this.dao.getById(id);
-    return new Cart(dto);
+    return dto ? new Cart(dto) : null;
   }
 
   async save(cart) {

@@ -1,5 +1,4 @@
 import { ProductsServices } from "../services/products.js";
-import { isMongoId } from "../helpers/generalValidations.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -38,24 +37,12 @@ export default class ProductsControllers {
 
   async deleteProduct(req, res) {
     const { id } = req.params;
-
-    if (process.env.PERSISTENCE == "mongo" && !isMongoId(id)) {
-      res.status(200).json({ status: "No mongo id" });
-      return;
-    }
-
     const deletedId = await Services.deleteProducto(id);
     res.status(200).json({ deletedId: deletedId });
   }
 
   async updateProduct(req, res) {
     const { id } = req.params;
-
-    if (process.env.PERSISTENCE == "mongo" && !isMongoId(id)) {
-      res.status(200).json({ status: "No mongo id" });
-      return;
-    }
-
     const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
     const data = {
       ...(nombre != undefined && { nombre }),
@@ -66,7 +53,7 @@ export default class ProductsControllers {
       ...(stock != undefined && { stock }),
     };
     Object.keys(data).length == 0
-      ? res.status(200).json({ status: "No Content to change" })
+      ? res.status(200).json({ status: "No hay contenido para cambiar" })
       : res.status(200).json(await Services.updateProduct(id, data));
   }
 }

@@ -39,11 +39,14 @@ export default class CartsDAOMongoose {
   }
 
   async getById(id) {
-    // WHEN NO ROW IS FOUND RETURNS EMPTY ARRAY
+    // WHEN NO ROW IS FOUND RETURNS NULL
     try {
-      return transformarADTO_Carts(
-        this.#generateDAOCompatible(await this.model.findOne({ _id: id }))
-      );
+      let find = await this.model.findOne({ _id: id });
+      return find
+        ? transformarADTO_Carts(
+            this.#generateDAOCompatible(await this.model.findOne(find))
+          )
+        : null;
     } catch (error) {
       console.log(error);
     }

@@ -22,7 +22,10 @@ export default class ProductsDAOMem {
     }
 
     getById(id) {
-        return transformarADTO(this.productos[this.#getIndex(id)]);
+        let find = this.productos[this.#getIndex(id)];
+        return find
+        ? transformarADTO(this.productos[this.#getIndex(id)])
+        : null;
     }
 
     save(object) {
@@ -32,9 +35,10 @@ export default class ProductsDAOMem {
     }
 
     deleteById(id) {
-        const deleted = transformarADTO(this.productos.splice(this.#getIndex(id), 1));
-        console.log(deleted);
-        return id
+        let find = this.productos[this.#getIndex(id)];
+        return find
+        ? transformarADTO(this.productos.splice(this.#getIndex(id), 1))
+        : null;
     }
 
     deleteAll() {

@@ -1,5 +1,4 @@
 import CartsServices from "../services/carts.js";
-import { isMongoId } from "../helpers/generalValidations.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -39,6 +38,7 @@ export default class CartsControllers {
     const cartId = req.params.id;
     const productId = req.params.id_producto;
     const updatedCart = await Services.postProductInCart(cartId, productId);
-    res.status(201).json(updatedCart);
+    return updatedCart? res.status(201).json(updatedCart) : res.json({status: "No existe producto o carrito con ese ID"})
+    
   }
 }

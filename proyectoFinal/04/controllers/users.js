@@ -21,9 +21,14 @@ export default class UsersControllers {
     const user = await Services.register(newUser);
     res.json(user)
   }
+
   async login(req, res) {
     const { email, password } = req.body;
     const token = await Services.login(email, password);
     res.json(token)
+  }
+
+  async getUsers(req, res) {
+    res.json(await Services.getUsers())
   }
 }

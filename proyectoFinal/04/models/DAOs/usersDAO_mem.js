@@ -4,7 +4,7 @@ export default class UsersDAOMem {
   constructor() {
     if (!UsersDAOMem.instance) {
       UsersDAOMem.instance = this;
-        this.users = [];
+      this.users = [];
     }
     return UsersDAOMem.instance;
   }
@@ -17,17 +17,32 @@ export default class UsersDAOMem {
     return this.users.findIndex((p) => p.id == id);
   }
 
+  #getIndexByEmail(email) {
+    return this.users.findIndex((p) => p.email == email);
+  }
+
   getAll() {
     return transformarADTO_Users(this.users);
   }
 
   getById(id) {
-    return transformarADTO_Users(this.users[this.#getIndex(id)]);
+    let find = this.productos[this.#getIndex(id)];
+    return find
+      ? transformarADTO_Users(this.productos[this.#getIndex(id)])
+      : null;
   }
 
   getByEmail(email) {
-    //crear bien la logica
-    return transformarADTO_Users(this.users[this.#getIndex(id)]);
+    try {
+      let find = this.users[this.#getIndexByEmail(email)];
+      if (find) {
+        return transformarADTO_Users(find);
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   save(object) {

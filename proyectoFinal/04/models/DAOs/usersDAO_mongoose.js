@@ -59,34 +59,33 @@ export default class UsersDAOMongoose {
   }
 
   async getById(id) {
-    // WHEN NO ROW IS FOUND RETURNS EMPTY ARRAY
+    // WHEN NO ROW IS FOUND RETURNS NULL
     try {
-      return transformarADTO_Users(
-        this.#generateDAOCompatible(await this.model.findOne({ _id: id }))
-      );
+      let find = await this.model.findOne({ _id: id });
+      return find
+        ? transformarADTO_Users(
+            this.#generateDAOCompatible(await this.model.findOne(find))
+          )
+        : null;
     } catch (error) {
       console.log(error);
     }
   }
-  /////////// CAMBIAR EN TODOS DAO
+
   async getByEmail(email) {
     // WHEN NO ROW IS FOUND RETURNS NULL
     try {
       let find = await this.model.findOne({ email: email });
-      if (find) {
-        return transformarADTO_Users(
-          this.#generateDAOCompatible(
-            await this.model.findOne({ email: email })
+      return find
+        ? transformarADTO_Users(
+            this.#generateDAOCompatible(await this.model.findOne(find))
           )
-        );
-      } else {
-        return null
-      }
+        : null;
     } catch (error) {
       console.log(error);
     }
   }
-/////////
+
   async update(id, newObject) {
     try {
       this.#replaceIDfor_ID(newObject);

@@ -10,7 +10,7 @@ export class ProductsServices {
 
   async getProductById(id){
     const product = await productsR.getById(id);
-    return product
+    return product ? product : {}
   }
 
   async postProducto(newProduct) {

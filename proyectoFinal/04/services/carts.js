@@ -24,9 +24,13 @@ export default class CartsServices {
   async postProductInCart(cartId, productId) {
     const cart = await cartsR.getById(cartId);
     const product = await prodR.getById(productId);
-    cart.productos.push(product);
-    const updatedCart = await cartsR.update(cartId, cart);
-    return updatedCart;
+    if (product && cart) {
+      cart.productos.push(product);
+      const updatedCart = await cartsR.update(cartId, cart);
+      return updatedCart;
+    } else {
+      return null
+    }
   }
 
   async deleteProductInCart(cartId, productId) {

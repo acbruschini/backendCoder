@@ -9,7 +9,7 @@ export default class ProductsDAOMongoose {
   #replaceIDfor_ID(obj) {
     obj["_id"] = obj["id"];
     delete obj["id"];
-    return obj
+    return obj;
   }
 
   #generateDAOCompatible(mongooseOBJ) {
@@ -52,11 +52,14 @@ export default class ProductsDAOMongoose {
   }
 
   async getById(id) {
-    // WHEN NO ROW IS FOUND RETURNS EMPTY ARRAY
+    // WHEN NO ROW IS FOUND RETURNS NULL
     try {
-      return transformarADTO(
-        this.#generateDAOCompatible(await this.model.findOne({ _id: id }))
-      );
+      let find = await this.model.findOne({ _id: id });
+      return find
+        ? transformarADTO(
+            this.#generateDAOCompatible(await this.model.findOne(find))
+          )
+        : null;
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +67,7 @@ export default class ProductsDAOMongoose {
 
   async update(id, newObject) {
     try {
-      this.#replaceIDfor_ID(newObject)
+      this.#replaceIDfor_ID(newObject);
       await this.model.updateOne({ _id: id }, newObject);
       return transformarADTO({ id: id, ...newObject });
     } catch (error) {
