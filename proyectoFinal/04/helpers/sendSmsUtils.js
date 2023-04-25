@@ -7,7 +7,6 @@ const client = TwilioSDK(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_
 export async function sendOrder(message) {
     try {
         message = await client.messages.create(message)
-        //console.log(message)
      } catch (error) {
         console.log(error)
      }

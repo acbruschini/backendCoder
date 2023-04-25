@@ -58,7 +58,7 @@ export class UsersServices {
         return { status: "El usuario no existe" };
       } else if (validPasword(password, user.hash, user.salt)) {
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-          expiresIn: "30m",
+          expiresIn: process.env.JWT_TOKEN_DURATION,
         });
         return { token: token, userId: user.id };
       } else {
