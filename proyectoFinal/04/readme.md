@@ -120,7 +120,7 @@ Además, esta ruta hace uso de la función middleware `validMongoId` para asegur
 -------------
 
 -------------
-###Usuarios
+### Usuarios ####
 
 ###### Rutas Disponibles
 -------------
@@ -190,7 +190,7 @@ La ruta `/usuario/` devuelve una lista de todos los usuarios registrados en la p
 -------------
 
 -------------
-###Carritos
+### Carritos ####
 
 ###### Rutas Disponibles
 > Se requiere un token de autenticación válido para acceder a todas las rutas de Carritos. 
@@ -297,7 +297,7 @@ La ruta `/carrito/:id` elimina un carrito especificado por su `id` de la platafo
 -------------
 
 -------------
-###Pedidos
+### Pedidos ####
 
 ###### Rutas Disponibles
 > Se requiere un token de autenticación válido para acceder a todas las rutas de Pedidos.
