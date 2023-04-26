@@ -3,7 +3,7 @@ import { validPasword, genPassword } from "../helpers/passwordUtils.js";
 import CartsRepo from "../repos/carts.js";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
-import { sendEmailRegistration } from "../../03/helpers/sendEmailUtils.js";
+import { sendEmailRegistration } from "../helpers/sendEmailUtils.js";
 dotenv.config();
 
 const usersR = new UsersRepo();
