@@ -11,7 +11,7 @@ Rutas de consumo de datos agrupados por Tipos.
 ###### Rutas Disponibles
 -------------
 
-- ###### GET /productos
+- ###### GET /api/productos
 
 La ruta `/productos` devuelve una lista de todos los productos disponibles en la tienda en línea. Esta ruta utiliza el método `GET` y es manejada por el controlador `getProducts` definido en `Controllers.js`.
 
@@ -30,7 +30,7 @@ Ejemplo de devolucion.
   },
 ]
 ```
-- ###### GET /productos/:id
+- ###### GET /api/productos/:id
 
 La ruta `/productos/:id` devuelve la información del producto específico identificado por el parámetro `id`. Esta ruta utiliza el método `GET` y es manejada por el controlador `getProductById` definido en `Controllers.js`.
 
@@ -51,7 +51,7 @@ Ejemplo de devolución.
 ```
 Además, esta ruta hace uso de la función middleware `validMongoId` para asegurarse de que el valor de `id` proporcionado en la URL sea un string válido de MongoDB (En el caso que su persistencia configurada sea en MongoDB).
 
-- ###### POST /productos
+- ###### POST /api/productos
 
 La ruta `/productos` permite la creación de nuevos productos en la tienda en línea. Esta ruta utiliza el método `POST` y es manejada por el controlador `postProduct` definido en `Controllers.js`.
 
@@ -76,7 +76,7 @@ Ejemplo de devolución.
 }
 ```
 
-- ###### DELETE /productos/:id
+- ###### DELETE /api/productos/:id
 
 La ruta `/productos/:id` permite la eliminación de un producto específico identificado por el parámetro `id`. Esta ruta utiliza el método `DELETE` y es manejada por el controlador `deleteProduct` definido en `Controllers.js`.
 
@@ -89,7 +89,7 @@ Ejemplo de devolución.
 
 Además, esta ruta hace uso de la función middleware `validMongoId` para asegurarse de que el valor de `id` proporcionado en la URL sea un string válido de MongoDB (En el caso que su persistencia configurada sea en MongoDB).
 
-- ###### PUT /productos/:id
+- ###### PUT /api/productos/:id
 
 La ruta `/productos/:id` permite la actualización de los detalles de un producto específico identificado por el parámetro `id`. Esta ruta utiliza el método `PUT` y es manejada por el controlador `updateProduct` definido en `Controllers.js`.
 Debe enviarse en el body un objeto solo con los atributos que desea cambiarse/agregarse.
@@ -125,7 +125,7 @@ Además, esta ruta hace uso de la función middleware `validMongoId` para asegur
 ###### Rutas Disponibles
 -------------
 
-- ###### POST /usuario/login
+- ###### POST /api/usuario/login
 
 La ruta `/usuario/login` permite a los usuarios iniciar sesión en la plataforma de comercio electrónico. Esta ruta utiliza el método `POST` y es manejada por el controlador `login` definido en `Controllers.js`.
 
@@ -146,7 +146,7 @@ Ejemplo de devolución.
 }
 ```
 
-- ###### POST /usuario/register
+- ###### POST /api/usuario/register
 
 La ruta `/usuario/register` permite a los usuarios registrarse en la plataforma de comercio electrónico. Esta ruta utiliza el método `POST` y es manejada por el controlador `register` definido en `Controllers.js`.
 
@@ -181,7 +181,7 @@ Ejemplo de devolución.
 }
 ```
 
-- ###### GET /usuario/
+- ###### GET /api/usuario/
 
 La ruta `/usuario/` devuelve una lista de todos los usuarios registrados en la plataforma de comercio electrónico. Esta ruta utiliza el método `GET` y es manejada por el controlador `getUsers` definido en `Controllers.js`.
 
@@ -197,7 +197,7 @@ La ruta `/usuario/` devuelve una lista de todos los usuarios registrados en la p
 
 -------------
 
-- ###### GET /carrito/
+- ###### GET /api/carrito/
 
 La ruta `/carrito/` devuelve una lista de todos los carritos creados por los usuarios. Esta ruta utiliza el método `GET` y es manejada por el controlador `getCarts` definido en `Controllers.js`.
 
@@ -227,7 +227,7 @@ Ejemplo de devolución.
   }
 ]
 ```
-- ###### GET /carrito/:id/productos
+- ###### GET /api/carrito/:id/productos
 
 La ruta `/carrito/:id/productos` devuelve una lista de todos los productos en un carrito especificado por su `id`. Esta ruta utiliza el método `GET` y es manejada por el controlador `getProductsInCart` definido en `Controllers.js`.
 
@@ -246,7 +246,7 @@ Ejemplo de devolución.
 	}
 ]
 ```
-- ###### POST /carrito/:id/productos/:id_producto
+- ###### POST /api/carrito/:id/productos/:id_producto
 
 La ruta `/carrito/:id/productos/:id_producto` agrega un producto especificado por su `id_producto` a un carrito especificado por su `id`. Esta ruta utiliza el método `POST` y es manejada por el controlador `postProductInCart` definido en `Controllers.js`.
 
@@ -270,7 +270,7 @@ Ejemplo de devolución.
 }
 ```
 
-- ###### DELETE /carrito/:id/productos/:id_producto
+- ###### DELETE /api/carrito/:id/productos/:id_producto
 
 La ruta `/carrito/:id/productos/:id_producto` elimina un producto especificado por su `id_producto` de un carrito especificado por su `id`. Esta ruta utiliza el método `DELETE` y es manejada por el controlador `deleteProductInCart` definido en `Controllers.js`. Devuelve el carrito completo, sin el producto eliminado.
 
@@ -282,13 +282,13 @@ Ejemplo de devolución.
   "productos": []
 }
 ```
-- ###### POST /carrito/
+- ###### POST /api/carrito/
 
 La ruta `/carrito/` crea un nuevo carrito en la plataforma de comercio electrónico. Esta ruta utiliza el método `POST` y es manejada por el controlador `postCart` definido en `Controllers.js`.
 
 > <span style="color:red;">Esta ruta esta creada con el fin educativo de poder controlar los carritos, y no existiria en una api real, ya que los carritos se crean al crear un usuario.</span>
 
-- ###### DELETE /carrito/:id
+- ###### DELETE /api/carrito/:id
 
 La ruta `/carrito/:id` elimina un carrito especificado por su `id` de la plataforma de comercio electrónico. Esta ruta utiliza el método `DELETE` y es manejada por el controlador `deleteCart` definido en `Controllers.js`.
 
@@ -304,7 +304,7 @@ La ruta `/carrito/:id` elimina un carrito especificado por su `id` de la platafo
 
 -------------
 
-- ###### POST /pedidos/:userId
+- ###### POST /api/pedidos/:userId
 
 Crea un nuevo pedido para el usuario especificado por `userId`.
 Devuelve la info de usuario que realiza el pedido, y el carrito. Ademas vacia los productos del carrito asignado al usuario
