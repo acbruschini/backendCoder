@@ -2,7 +2,8 @@ Ecommerce-Api
 =============
 Esta API comercio electrónico es un conjunto de endpoints que permiten a los desarrolladores interactuar y consumir datos de un relacionados a comercio electrónico. Proporciona acceso a la información de los productos, a las órdenes, usuarios, y carritos de compra.
 
-#Endpoints
+Endpoints
+-------------
 Rutas de consumo de datos agrupados por Tipos.
 
 ###Productos
