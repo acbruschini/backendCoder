@@ -1,2 +1,0 @@
-1) Validar id todos
-2) cambiar getbyId y getbyemail en daos mongo

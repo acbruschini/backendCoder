@@ -7,7 +7,7 @@ import { verifyToken } from "../middlewares/authMiddleware.js";
 
 export const router = Router();
 
-router.use(prodRouter);
-router.use("/carrito", cartsRouter);
+router.use("/productos", prodRouter);
+router.use("/carrito", verifyToken, cartsRouter);
 router.use("/usuario", userRouter);
-router.use("/pedidos", ordersRouter);
+router.use("/pedidos", verifyToken, ordersRouter);
