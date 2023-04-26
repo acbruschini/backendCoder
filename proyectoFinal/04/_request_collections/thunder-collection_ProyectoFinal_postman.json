@@ -1,0 +1,382 @@
+{
+    "info": {
+        "name": "ProyectoFinal",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "POST Register User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/usuario/register",
+                            "path": [
+                                "api",
+                                "usuario",
+                                "register"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"brucebanner@virginiauniversitylab.com\",\n  \"nombre\": \"Bruce Banner\",\n  \"direccion\": \"2715 N Vermont Canyon Rd, Los Angeles, CA 90027, USA.\",\n  \"edad\": 41,\n  \"telefono\": \"+541137920000\",\n  \"foto\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mark_Ruffalo_%2836243137665%29_%28cropped%29.jpg/190px-Mark_Ruffalo_%2836243137665%29_%28cropped%29.jpg\",\n  \"password\": \"brucedontlikeradiation\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "POST Login User",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/usuario/login",
+                            "path": [
+                                "api",
+                                "usuario",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"leticia@leticia.com\",\n  \"password\": \"leticiapassword\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cart",
+            "item": [
+                {
+                    "name": "POST producto en Carrito",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos/6449335119a8b45fa5ce35dd",
+                            "path": [
+                                "api",
+                                "carrito",
+                                "644660e4be01227d543629db",
+                                "productos",
+                                "6449335119a8b45fa5ce35dd"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "POST Carrito",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito",
+                            "path": [
+                                "api",
+                                "carrito"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "DELETE Producto en Carrito",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos/6449335119a8b45fa5ce35dd",
+                            "path": [
+                                "api",
+                                "carrito",
+                                "644660e4be01227d543629db",
+                                "productos",
+                                "6449335119a8b45fa5ce35dd"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "DELETE Carrito",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito/1682364860649",
+                            "path": [
+                                "api",
+                                "carrito",
+                                "1682364860649"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDY2MGU0YmUwMTIyN2Q1NDM2MjlkZCIsImlhdCI6MTY4MjM2NDY1NSwiZXhwIjoxNjgyMzY2NDU1fQ.cvEpBKkTqb_wVXMk1OaMYjNGTQ9zJ1cH5PPBwzYZg0w"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "GET Carritos",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito",
+                            "path": [
+                                "api",
+                                "carrito"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "GET Productos en Carrito",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos",
+                            "path": [
+                                "api",
+                                "carrito",
+                                "644660e4be01227d543629db",
+                                "productos"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDY2MGU0YmUwMTIyN2Q1NDM2MjlkZCIsImlhdCI6MTY4MjM2MjgxMiwiZXhwIjoxNjgyMzY0NjEyfQ.9m3v66CLghMA-xfw6C7ndBqPnnyxsY1RxtP5niNejss"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "item": [
+                {
+                    "name": "GET products",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "backendcoder-production.up.railway.app/api/productos",
+                            "path": [
+                                "api",
+                                "productos"
+                            ],
+                            "host": [
+                                "backendcoder-production",
+                                "up",
+                                "railway",
+                                "app"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "GET producto by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8080/api/productos/644531f4df0335197fe4ff48",
+                            "path": [
+                                "api",
+                                "productos",
+                                "644531f4df0335197fe4ff48"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "POST Producto",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/productos",
+                            "path": [
+                                "api",
+                                "productos"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nombre\":\"Remera Iron Man\",\n  \"descripcion\":\"Espectacular remera estampada de la memorable frase de Iron Man, I Love you 3000\",\n  \"codigo\":\"sku225\",\n  \"foto\":\"https://www.qualityartworks.com.ar/wp-content/uploads/re/re1417/1417re_verde_producto.jpg\",\n  \"precio\":5500,\n  \"stock\":20\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "DELETE Product",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8080/api/productos/64453226df0335197fe4ff4d",
+                            "path": [
+                                "api",
+                                "productos",
+                                "64453226df0335197fe4ff4d"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "UPDATE Product",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8080/api/productos/6449335119a8b45fa5ce35dd",
+                            "path": [
+                                "api",
+                                "productos",
+                                "6449335119a8b45fa5ce35dd"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\r\n  \"codigo\":\"sku225\",\r\n  \"stock\":50\r\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Orders",
+            "item": [
+                {
+                    "name": "POST Order",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8080/api/pedidos/644660e4be01227d543629dd",
+                            "path": [
+                                "api",
+                                "pedidos",
+                                "644660e4be01227d543629dd"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

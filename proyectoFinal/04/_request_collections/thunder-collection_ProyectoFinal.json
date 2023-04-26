@@ -1,0 +1,295 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ProyectoFinal",
+    "dateExported": "2023-04-26T19:17:35.740Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "64bd7911-8c40-40f3-9a06-91c2bba451c4",
+            "name": "Users",
+            "containerId": "",
+            "created": "2023-03-02T20:56:48.329Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "Cart",
+            "containerId": "",
+            "created": "2023-03-04T21:35:26.910Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "Products",
+            "containerId": "",
+            "created": "2023-03-05T19:09:37.989Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "79753243-36db-4eb4-bb96-4ebaf595cc83",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2023-04-25T14:39:18.492Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "551f64e6-3b62-4aa1-9de8-7b11b9389686",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "POST producto en Carrito",
+            "url": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos/6449335119a8b45fa5ce35dd",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-12-03T14:16:01.962Z",
+            "modified": "2023-04-26T15:01:35.744Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "325a93b8-f1f0-4ac1-8285-eb2100f3b0d0",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "64bd7911-8c40-40f3-9a06-91c2bba451c4",
+            "name": "POST Register User",
+            "url": "http://localhost:8080/api/usuario/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-02T20:56:59.746Z",
+            "modified": "2023-04-26T14:42:04.035Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"brucebanner@virginiauniversitylab.com\",\n  \"nombre\": \"Bruce Banner\",\n  \"direccion\": \"2715 N Vermont Canyon Rd, Los Angeles, CA 90027, USA.\",\n  \"edad\": 41,\n  \"telefono\": \"+541137920000\",\n  \"foto\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mark_Ruffalo_%2836243137665%29_%28cropped%29.jpg/190px-Mark_Ruffalo_%2836243137665%29_%28cropped%29.jpg\",\n  \"password\": \"brucedontlikeradiation\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "67f9ff85-624e-4b1e-b5a2-973c4366be4d",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "64bd7911-8c40-40f3-9a06-91c2bba451c4",
+            "name": "POST Login User",
+            "url": "http://localhost:8080/api/usuario/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-03-03T20:36:12.847Z",
+            "modified": "2023-04-24T11:48:02.144Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"leticia@leticia.com\",\n  \"password\": \"leticiapassword\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "69a042d1-40c4-4218-8463-bf5e7967b67e",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "GET products",
+            "url": "backendcoder-production.up.railway.app/api/productos",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-03-05T19:09:56.908Z",
+            "modified": "2023-04-26T19:14:28.526Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "df8421fc-adc8-4933-bc4f-14a53358c396",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "GET producto by ID",
+            "url": "http://localhost:8080/api/productos/644531f4df0335197fe4ff48",
+            "method": "GET",
+            "sortNum": 75000,
+            "created": "2023-04-24T19:39:59.312Z",
+            "modified": "2023-04-26T15:31:47.866Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "978c2022-9852-4247-88bf-b4464a276913",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "POST Producto",
+            "url": "http://localhost:8080/api/productos",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-04-22T21:40:16.594Z",
+            "modified": "2023-04-26T14:21:05.917Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Remera Iron Man\",\n  \"descripcion\":\"Espectacular remera estampada de la memorable frase de Iron Man, I Love you 3000\",\n  \"codigo\":\"sku225\",\n  \"foto\":\"https://www.qualityartworks.com.ar/wp-content/uploads/re/re1417/1417re_verde_producto.jpg\",\n  \"precio\":5500,\n  \"stock\":20\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "389b13cc-155c-4e35-bded-3fdcac42cf22",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "DELETE Product",
+            "url": "http://localhost:8080/api/productos/64453226df0335197fe4ff4d",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-04-22T21:49:59.271Z",
+            "modified": "2023-04-26T14:22:40.097Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0942a94c-75f4-4310-aef0-3737b070446b",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4df90239-0cc6-4616-917b-1aabdd3382e8",
+            "name": "UPDATE Product",
+            "url": "http://localhost:8080/api/productos/6449335119a8b45fa5ce35dd",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2023-04-22T22:12:08.353Z",
+            "modified": "2023-04-26T14:26:07.227Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"codigo\":\"sku225\",\r\n  \"stock\":50\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ed098206-31d6-4c58-a69a-7cee9391be0b",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "POST Carrito",
+            "url": "http://localhost:8080/api/carrito",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-04-23T10:48:37.082Z",
+            "modified": "2023-04-24T19:34:20.647Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ce76c9e6-8320-46c4-9c80-e2f2c1905b5b",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "DELETE Producto en Carrito",
+            "url": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos/6449335119a8b45fa5ce35dd",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2023-04-23T13:03:14.361Z",
+            "modified": "2023-04-26T15:06:00.948Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2f5d6ef3-d726-4abe-be33-17d6abff4e4b",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "DELETE Carrito",
+            "url": "http://localhost:8080/api/carrito/1682364860649",
+            "method": "DELETE",
+            "sortNum": 130000,
+            "created": "2023-04-23T14:43:55.983Z",
+            "modified": "2023-04-24T19:34:45.933Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDY2MGU0YmUwMTIyN2Q1NDM2MjlkZCIsImlhdCI6MTY4MjM2NDY1NSwiZXhwIjoxNjgyMzY2NDU1fQ.cvEpBKkTqb_wVXMk1OaMYjNGTQ9zJ1cH5PPBwzYZg0w"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5b582445-ea9a-4dc9-82a8-792592137f82",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "GET Carritos",
+            "url": "http://localhost:8080/api/carrito",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-04-24T12:54:49.507Z",
+            "modified": "2023-04-24T19:34:29.828Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIzNjQ4MjQ3NzEiLCJpYXQiOjE2ODIzNjQ4MzMsImV4cCI6MTY4MjM2NjYzM30.7uKc1N_i1DvuaS80TpBNsFEWlLxUPyhF1FgbPtv1JQg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7c366d62-637c-479b-9b40-e80fd06e999a",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "4180ed1d-f959-4cee-827d-59927fd7339c",
+            "name": "GET Productos en Carrito",
+            "url": "http://localhost:8080/api/carrito/644660e4be01227d543629db/productos",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2023-04-24T19:01:27.232Z",
+            "modified": "2023-04-26T14:58:55.953Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDY2MGU0YmUwMTIyN2Q1NDM2MjlkZCIsImlhdCI6MTY4MjM2MjgxMiwiZXhwIjoxNjgyMzY0NjEyfQ.9m3v66CLghMA-xfw6C7ndBqPnnyxsY1RxtP5niNejss"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6ef5160c-9980-4e9e-85f1-54d355d97e5a",
+            "colId": "29227962-bf91-4f9e-a693-42a88555918a",
+            "containerId": "79753243-36db-4eb4-bb96-4ebaf595cc83",
+            "name": "POST Order",
+            "url": "http://localhost:8080/api/pedidos/644660e4be01227d543629dd",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2023-04-25T14:39:29.308Z",
+            "modified": "2023-04-25T14:50:56.445Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
